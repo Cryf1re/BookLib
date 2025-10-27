@@ -31,10 +31,6 @@ class AppSettings(BaseAppSettings):
 
     allowed_hosts: List[str] = ["*"]
 
-    google_client_id: str
-    google_client_secret: str
-    google_redirect_uri: str
-
     @property
     def fastapi_kwargs(self) -> Dict[str, Any]:
         return {
