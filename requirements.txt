@@ -1,0 +1,12 @@
+pydantic-settings
+sqlalchemy[asyncio]
+fastapi
+uvicorn[standard]
+asyncio
+loguru
+asyncpg
+passlib
+python-jose[cryptography]
+pydantic[email]
+python-multipart
+alembic
