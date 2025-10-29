@@ -44,9 +44,25 @@ class AppSettings(BaseAppSettings):
         }
 
     def configure_logging(self) -> None:
-        logging.getLogger().handlers = [InterceptHandler()]
-        for logger_name in self.loggers:
-            logging_logger = logging.getLogger(logger_name)
-            logging_logger.handlers = [InterceptHandler(level=self.logging_level)]
 
-        logger.configure(handlers=[{"sink": sys.stderr, "level": self.logging_level}])
+        logging.getLogger().handlers = [InterceptHandler()]
+
+
+        for logger_name in ("uvicorn", "uvicorn.error", "uvicorn.access", "fastapi"):
+            uvicorn_logger = logging.getLogger(logger_name)
+            uvicorn_logger.handlers = [InterceptHandler()]
+            uvicorn_logger.propagate = False
+
+        logger.remove()
+
+        logger.add(
+            sys.stdout,
+            colorize=True,
+            format=(
+                "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | "
+                "<level>{level:<8}</level> | "
+                "<cyan>{name}</cyan>:<green>{function}</green>:<yellow>{line}</yellow> - "
+                "<level>{message}</level>"
+            ),
+            level=self.logging_level,
+        )
