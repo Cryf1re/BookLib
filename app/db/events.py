@@ -1,5 +1,4 @@
-# pyright: reportMissingTypeStubs=false
-import asyncpg
+import asyncpg # type: ignore
 from fastapi import FastAPI
 from loguru import logger
 
@@ -7,7 +6,7 @@ from app.core.settings.app import AppSettings
 
 
 async def connect_to_db(app: FastAPI, settings: AppSettings) -> None:
-    logger.info("Connecting to PostgreSQL")
+    logger.info("Connecting to PostgreSQL...")
     dsn = str(settings.database_url)
     if "+asyncpg" in dsn:
         dsn = dsn.replace("+asyncpg", "")

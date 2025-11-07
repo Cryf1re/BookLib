@@ -15,12 +15,12 @@ dependencies = [
     "uvicorn[standard] (>=0.38.0,<0.39.0)",
     "asyncio (>=4.0.0,<5.0.0)",
     "loguru (>=0.7.3,<0.8.0)",
-    "asyncpg (>=0.30.0,<0.31.0)",
     "passlib (>=1.7.4,<2.0.0)",
     "python-jose[cryptography] (>=3.5.0,<4.0.0)",
     "pydantic[email] (>=2.12.3,<3.0.0)",
     "python-multipart (>=0.0.20,<0.0.21)",
-    "alembic (>=1.17.0,<2.0.0)"
+    "alembic (>=1.17.0,<2.0.0)",
+    "asyncpg (>=0.30.0,<0.31.0)"
 ]
 
 
