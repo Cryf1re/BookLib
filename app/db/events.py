@@ -16,7 +16,7 @@ async def connect_to_db(app: FastAPI, settings: AppSettings) -> None:
         min_size=settings.min_connection_count,
         max_size=settings.max_connection_count,
     )
-    logger.info("Connection established")
+    logger.info("Connection completed")
 
 
 async def close_db_connection(app: FastAPI) -> None:
