@@ -3,6 +3,7 @@ from typing import AsyncGenerator
 from sqlalchemy.orm import declarative_base
 from app.core.config import settings
 
+
 Base = declarative_base()
 
 
@@ -17,6 +18,7 @@ async_session_factory = async_sessionmaker(
     class_=AsyncSession,
     expire_on_commit=False,
 )
+
 
 async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
     async with async_session_factory() as session:
