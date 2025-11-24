@@ -1,7 +1,6 @@
 import logging
 import sys
 from typing import Any, Dict, Tuple, List
-
 from loguru import logger
 from pydantic import PostgresDsn, SecretStr
 
